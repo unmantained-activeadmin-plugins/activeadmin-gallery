@@ -14,8 +14,8 @@ module ActiveAdmin
       def has_image(relation_name, &block)
         semantic_fields_for relation_name, (object.send(relation_name) || object.send("build_#{relation_name}")) do |i|
           i.inputs :image do
-            i.input :title
             i.input :image, as: :dragonfly
+            i.input :title
             i.input :alt
           end
         end
