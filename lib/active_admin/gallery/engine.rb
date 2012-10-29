@@ -2,7 +2,7 @@ module ActiveAdmin
   module Gallery
 
     class Engine < ::Rails::Engine
-      engine_name "active_admin_gallery"
+      engine_name "activeadmin_gallery"
 
       initializer "require dragonfly", group: :all do |app|
         ActiveSupport.on_load(:active_record) do
