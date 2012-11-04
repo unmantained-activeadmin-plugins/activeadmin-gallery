@@ -8,6 +8,10 @@ module ActiveAdmin
           i.input :title
           i.input :image, as: :dragonfly
           i.input :alt
+          unless i.object.new_record?
+            i.input :_destroy, :as => :boolean
+          end
+          i.form_buffers.last
         end
       end
 
@@ -17,6 +21,10 @@ module ActiveAdmin
             i.input :image, as: :dragonfly
             i.input :title
             i.input :alt
+            unless i.object.new_record?
+              i.input :_destroy, :as => :boolean
+            end
+            i.form_buffers.last
           end
         end
       end
