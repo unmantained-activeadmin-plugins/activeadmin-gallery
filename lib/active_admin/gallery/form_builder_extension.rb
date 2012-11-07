@@ -16,17 +16,17 @@ module ActiveAdmin
       end
 
       def has_image(relation_name, &block)
-        semantic_fields_for relation_name, (object.send(relation_name) || object.send("build_#{relation_name}")) do |i|
-          i.inputs :image do
-            i.input :image, as: :dragonfly
-            i.input :title
-            i.input :alt
-            unless i.object.new_record?
-              i.input :_destroy, :as => :boolean
-            end
-            i.form_buffers.last
+        object.send("build_#{relation_name}") unless object.send(relation_name).present?
+        content = inputs_for_nested_attributes(for: relation_name, class: "inputs") do |form|
+          form.input :image, as: :dragonfly
+          form.input :title
+          form.input :alt
+          unless form.object.new_record?
+            form.input :_destroy, :as => :boolean
           end
+          form.form_buffers.last
         end
+        form_buffers.last << content
       end
 
       module ClassMethods
