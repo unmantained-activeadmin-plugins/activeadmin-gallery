@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 require File.expand_path('../lib/active_admin/gallery/version', __FILE__)
 
 Gem::Specification.new do |gem|
@@ -18,5 +16,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_runtime_dependency 'activeadmin-dragonfly'
+  gem.add_dependency 'jquery-ui-rails'
+
   gem.add_development_dependency 'bundler', '~> 1.0'
 end

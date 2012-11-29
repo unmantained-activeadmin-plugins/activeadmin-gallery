@@ -8,6 +8,7 @@ module ActiveAdmin
           i.input :title
           i.input :image, as: :dragonfly
           i.input :alt
+          i.input :position, as: :hidden
           unless i.object.new_record?
             i.input :_destroy, :as => :boolean
           end
