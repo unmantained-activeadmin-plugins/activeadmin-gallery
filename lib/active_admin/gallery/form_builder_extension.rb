@@ -5,6 +5,10 @@ module ActiveAdmin
 
       def has_many_images(relation_name, &block)
         has_many relation_name do |i|
+          i.form_buffers.last << template.content_tag(:h4) do
+            position = template.content_tag(:span, i.object.position,:class => 'position')
+            "Image #{position}".html_safe
+          end
           i.input :title
           i.input :image, as: :dragonfly
           i.input :alt
