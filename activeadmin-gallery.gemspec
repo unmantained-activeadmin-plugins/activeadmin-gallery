@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_runtime_dependency 'activeadmin-dragonfly'
+  gem.add_runtime_dependency 'activeadmin-extra'
   gem.add_dependency 'jquery-ui-rails'
 
   gem.add_development_dependency 'bundler', '~> 1.0'
