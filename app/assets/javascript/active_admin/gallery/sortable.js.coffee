@@ -24,7 +24,6 @@ $ ->
         update: (event, ui) ->
           $(@).find("input[id$=_position]").each (index) -> $(@).val(index + 1)
 
-  $(document).live "click", "a", -> setTimeout(setup, 50)
+  $(document).on "click", "a", -> setTimeout(setup, 50)
 
   setup()
-
