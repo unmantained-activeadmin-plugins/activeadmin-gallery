@@ -10,6 +10,6 @@ module ActiveAdmin::Gallery
     validates_size_of :image, :maximum => 3.megabyte
     validates_property :format, of: :image, in: [:jpeg, :jpg, :png], case_sensitive: false
 
-    default_scope order(:position)
+    default_scope order(:position) if column_names.include?('position')
   end
 end
