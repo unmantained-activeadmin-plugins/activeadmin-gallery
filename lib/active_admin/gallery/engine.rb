@@ -7,13 +7,13 @@ module ActiveAdmin
       initializer "Railsyard precompile hook", group: :assets do |app|
         app.config.assets.precompile += [
           "active_admin/gallery/sortable.js",
-          "active_admin/gallery/sortable.css",
+          "active_admin/gallery.css",
         ]
       end
 
       initializer "add assets" do
         ActiveAdmin.application.register_javascript "active_admin/gallery/sortable.js"
-        ActiveAdmin.application.register_stylesheet "active_admin/gallery/sortable.css"
+        ActiveAdmin.application.register_stylesheet "active_admin/gallery.css"
       end
     end
 
