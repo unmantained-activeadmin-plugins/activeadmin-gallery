@@ -1,3 +1,5 @@
+#= require 'filereader'
+
 $ ->
 
   setup = ->
@@ -15,6 +17,28 @@ $ ->
     $('fieldset.has_many_images').each ->
       if $('.error', @).length > 0
         $(@).addClass('error')
+
+      $fieldset = $(@)
+      if window.File && window.FileReader
+        $fieldset.find('input[type=file]').fileReaderJS
+          readAsMap:
+            'image/*': 'DataURL'
+          on:
+            load: (e, file) ->
+              if file.type.match(/image/)
+                # Create a thumbnail and add it to the output if it is an image
+                img = new Image()
+                img.onload = -> $fieldset.find('.image_preview').html(img)
+                img.src = e.target.result
+              else
+                # Fallback: display file name
+                filename = $fieldset.find('input[type=file]').val().split(/(\\|\/)/g).pop()
+                $fieldset.find('.image_preview').html "<div class='no_image'>#{filename}</div>"
+      else
+        # Fallback: display file name
+        $fieldset.find('input[type=file]').change ->
+          filename = $(@).val().split(/(\\|\/)/g).pop()
+          $fieldset.find('.image_preview').html "<div class='no_image'>#{filename}</div>"
 
     $('div.has_many_images').each ->
       $fieldsets = $(@).find("fieldset.has_many_fields")

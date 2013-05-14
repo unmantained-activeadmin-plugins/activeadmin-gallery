@@ -11,7 +11,7 @@ module ActiveAdmin
           preview = if i.object.image.present?
             original_url = i.object.image.url
             preview_url = i.object.image.thumb("#{preview_size.first}x#{preview_size.last}#").url
-            template.content_tag(:li, class: "image_preview") do
+            template.content_tag(:li, class: "image_preview", style: "width: #{preview_size.first}px; height: #{preview_size.last}px") do
               template.link_to(template.image_tag(preview_url), original_url)
             end
           else
