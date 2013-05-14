@@ -19,6 +19,7 @@ $ ->
     $('div.has_many_images').each ->
       $fieldsets = $(@).find("fieldset.has_many_fields")
       $(@).sortable
+        revert: 250
         opacity: 0.5
         items: $fieldsets
         update: (event, ui) ->
