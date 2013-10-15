@@ -4,7 +4,7 @@ module ActiveAdmin
     class Engine < ::Rails::Engine
       engine_name "activeadmin_gallery"
 
-      initializer "Railsyard precompile hook", group: :assets do |app|
+      initializer "Railsyard precompile hook", group: :all do |app|
         app.config.assets.precompile += [
           "active_admin/gallery/sortable.js",
           "active_admin/gallery.css",
