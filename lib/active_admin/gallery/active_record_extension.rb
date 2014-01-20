@@ -13,7 +13,6 @@ module ActiveAdmin::Gallery
       end
 
       accepts_nested_attributes_for name, allow_destroy: true, reject_if: :all_blank
-      attr_accessible :"#{name}_attributes"
     end
 
     def has_many_images(name)
@@ -30,7 +29,6 @@ module ActiveAdmin::Gallery
       end
 
       accepts_nested_attributes_for name, allow_destroy: true, reject_if: :all_blank
-      attr_accessible :"#{name}_attributes"
     end
 
   end
