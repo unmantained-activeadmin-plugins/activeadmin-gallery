@@ -3,13 +3,15 @@
 ## Description
 
 With activeadmin-gallery, you are able to DRY up your models and freely associate images and galleries to your models.
+This version is compatible with ActiveAdmin 0.6.x, for the upcoming 1.0 see [master branch](//github.com/stefanoverna/activeadmin-gallery/tree/master).
+
 
 ## Installation
 
 Add `activeadmin-gallery` to your Gemfile:
 
 ```ruby
-   gem 'activeadmin-gallery', github: 'stefanoverna/activeadmin-gallery'
+   gem 'activeadmin-gallery', github: 'stefanoverna/activeadmin-gallery', branch: '0-6-stable'
 ```
 
 Run the generator that will create the images table, and migrate.
