@@ -3,6 +3,8 @@
 ## Description
 
 With activeadmin-gallery, you are able to DRY up your models and freely associate images and galleries to your models.
+This version is compatible with ActiveAdmin 1.0.x, for the old 0.6.x release see [0-6-stable branch](//github.com/stefanoverna/activeadmin-gallery/tree/0-6-stable).
+
 
 ## Installation
 
