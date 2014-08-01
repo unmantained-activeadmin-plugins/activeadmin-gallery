@@ -11,4 +11,3 @@ module ActiveAdmin::Gallery
     default_scope { order(:position) if column_names.include?('position') }
   end
 end
-
