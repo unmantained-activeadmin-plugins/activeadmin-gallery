@@ -3,7 +3,7 @@
 ## Description
 
 With activeadmin-gallery, you are able to DRY up your models and freely associate images and galleries to your models.
-This version is compatible with ActiveAdmin 1.0.x, for the old 0.6.x release see [0-6-stable branch](//github.com/stefanoverna/activeadmin-gallery/tree/0-6-stable).
+This version is compatible with ActiveAdmin 1.0.x and Rails 4.1.5, for the old 0.6.x release see [0-6-stable branch](//github.com/stefanoverna/activeadmin-gallery/tree/0-6-stable).
 
 
 ## Installation
@@ -31,12 +31,35 @@ class Page < ActiveRecord::Base
 end
 ```
 
+In `app/controllers/pages_controller.rb`:
+
+```ruby
+class PagesController < ApplicationController
+  private
+  def page_params
+    params.require(:page).permit(:title, :content, album_images_attributes: [
+                                  :alt,
+                                  :title,
+                                  :position,
+                                  :image,
+                                  :retained_image ])
+  end
+end
+```
+
 No migrations, no models. That's all you need.
 
 In your ActiveAdmin config file:
 
 ```ruby
 ActiveAdmin.register Page do
+
+  permit_params :title, :content, album_images_attributes: [
+                :alt,
+                :title,
+                :position,
+                :image,
+                :retained_image]  
 
   form do |f|
     # ...
@@ -51,13 +74,14 @@ end
 
 ## Single image usage
 
+For use with Rails 4.1.5 adapt **Gallery usage** instructions.
+
 Suppose you want a Page model with a single image. Edit `app/models/page.rb`
 
 ```ruby
 class Page < ActiveRecord::Base
   has_image :featured_image
 end
-```
 
 No migrations, no models. That's all you need.
 In your ActiveAdmin config file:
