@@ -42,6 +42,8 @@ class PagesController < ApplicationController
                                   :title,
                                   :position,
                                   :image,
+                                  :id,
+                                  :_destroy,
                                   :retained_image ])
   end
 end
@@ -59,6 +61,8 @@ ActiveAdmin.register Page do
                 :title,
                 :position,
                 :image,
+                :id,
+                :_destroy,
                 :retained_image]  
 
   form do |f|
