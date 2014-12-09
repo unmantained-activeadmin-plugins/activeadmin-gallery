@@ -1,5 +1,9 @@
 # Active Admin Gallery
 
+### :warning: Unmaintained :warning:
+
+Sorry, but I no longer work on ActiveAdmin often enough to justify mantaining this gem. Take it as it is. If you are interested to update and maintain the gem, please let me know! :heart:
+
 ## Description
 
 With activeadmin-gallery, you are able to DRY up your models and freely associate images and galleries to your models.
