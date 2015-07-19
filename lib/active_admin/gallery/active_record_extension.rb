@@ -15,6 +15,7 @@ module ActiveAdmin::Gallery
       accepts_nested_attributes_for name, allow_destroy: true, reject_if: :all_blank
     end
 
+
     def has_many_images(name)
       has_many name,
         -> { where(imageable_relation: name.to_s) },
